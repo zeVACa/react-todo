@@ -6,18 +6,25 @@ const TodoInput = ({ tasks, setTasks }) => {
       const newTaskText = event.currentTarget.value.replace(/\s+/g, ' ').trim(); // remoing multiple spaces like '    a    a   ';
       event.currentTarget.value = '';
 
-      const allID = tasks.map((task) => task.id);
+      console.log('value: ', newTaskText);
+
+      const allID = tasks.map((task) => task.id).sort((curr, next) => curr - next);
       let elemID;
 
-      for (let i = 1; i < allID.length + 1; i++) {
-        if (!allID.includes(i)) {
-          elemID = i;
+      // не знаю как решить эту задачу декларативно только императивно
+      for (let i = 0; i < allID.length - 1; i++) {
+        if (allID[i + 1] - allID[i] > 1) {
+          elemID = allID[i] + 1;
           break;
+        }
+        {
+          elemID = allID[allID.length - 1] + 1;
         }
       }
 
-      console.log(allID);
-      console.log(elemID);
+      console.log('allID', allID);
+      console.log('elemID', elemID);
+      console.log('_____________');
 
       setTasks((prevTasks) => {
         return [...prevTasks, { id: elemID, text: newTaskText }];
