@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoItem from './components/TodoItem';
 
-const colors = ['grey', 'red', 'blue', 'orange', 'green'];
+import TodoInput from './components/TodoInput';
+import TodoItem from './components/TodoItem';
 
 function App() {
   const [tasks, setTasks] = React.useState([
@@ -10,7 +10,7 @@ function App() {
       text: 'Попробовать создать ToDo',
     },
     {
-      id: 2,
+      id: 5,
       text: 'Сохранить задачи в массив стейта',
     },
   ]);
@@ -20,16 +20,9 @@ function App() {
       <div className="todo">
         <h2>Список задач</h2>
         {tasks.map((obj) => (
-          <TodoItem key={obj.id} text={obj.text} />
+          <TodoItem tasks={tasks} setTasks={setTasks} key={obj.id} text={obj.text} />
         ))}
-        <div className="todo-input">
-          <input type="text" placeholder="Текст задачи..." />
-          <ul>
-            {colors.map((color) => (
-              <li className={`todo-color ${color}`}></li>
-            ))}
-          </ul>
-        </div>
+        <TodoInput tasks={tasks} setTasks={setTasks} />
       </div>
     </div>
   );
