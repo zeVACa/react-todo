@@ -25,7 +25,7 @@ function App() {
         ) : (
           tasks.map((obj) => {
             console.log(obj);
-            return <TodoItem setTasks={setTasks} key={obj.id} text={obj.text} />;
+            return <TodoItem setTasks={setTasks} key={obj.id} id={obj.id} text={obj.text} />;
           })
         )}
         <TodoInput tasks={tasks} setTasks={setTasks} />
