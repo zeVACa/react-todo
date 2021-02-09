@@ -1,5 +1,11 @@
+import React from 'react';
+
 const TodoInput = ({ setTasks }) => {
-  const colors = ['grey', 'red', 'blue', 'orange', 'green'];
+  const colors = ['grey', 'blue', 'green', 'orange', 'red'];
+
+  const [activeCollor, setActiveCollor] = React.useState('grey');
+
+  console.log('active color is ', activeCollor);
 
   const addTaskHandler = (event) => {
     if (event.key === 'Enter' && event.currentTarget.value !== '') {
@@ -17,13 +23,36 @@ const TodoInput = ({ setTasks }) => {
     }
   };
 
+  let colorButtons;
+
+  const changePriorityHandler = (event) => {};
+
   return (
     <div className="todo-input">
       <input onKeyDown={addTaskHandler} type="text" placeholder="Текст задачи..." />
       <ul>
-        {colors.map((color) => (
-          <li className={`todo-color ${color}`}></li>
-        ))}
+        {
+          (colorButtons = colors.map((color) => {
+            if (color === 'grey') {
+              return (
+                <li
+                  onClick={(event) => {
+                    setActiveCollor(event.currentTarget.classList[1]); //корректно ли хардкодом определять?
+                    // console.log(event.currentTarget.classList[1]);
+                  }}
+                  className={`todo-color ${color} ${color === activeCollor ? 'active' : ''}`}></li> // не уверен, что лучший способ выставления цвета из-за дублирования
+              );
+            }
+            return (
+              <li
+                onClick={(event) => {
+                  // console.log(event.currentTarget.classList[1]);
+                  setActiveCollor(event.currentTarget.classList[1]);
+                }}
+                className={`todo-color ${color}  ${color === activeCollor ? 'active' : ''}`}></li>
+            );
+          }))
+        }
       </ul>
     </div>
   );

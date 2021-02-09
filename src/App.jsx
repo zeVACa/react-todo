@@ -19,7 +19,6 @@ function App() {
     <div className="App">
       <div className="todo">
         <h2>Список задач</h2>
-
         <TodoList tasks={tasks} setTasks={setTasks} />
         <TodoInput tasks={tasks} setTasks={setTasks} />
       </div>
