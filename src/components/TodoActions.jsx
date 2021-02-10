@@ -1,11 +1,14 @@
-const TodoActions = ({ id: todoID, setTasks }) => {
+const TodoActions = ({ id: todoID, setTasks, color }) => {
   const editTodoHandler = (event) => {
-    const newTodoText = prompt('Введите новый текст', '');
+    let newTodoText;
+    do {
+      newTodoText = prompt('Введите новый текст', '');
+    } while (newTodoText === '');
 
     setTasks((prevTasks) => {
       return prevTasks.map((task) => {
         if (task.id === todoID) {
-          return { id: todoID, text: newTodoText };
+          return { id: todoID, text: newTodoText, color: color };
         } else {
           return task;
         }

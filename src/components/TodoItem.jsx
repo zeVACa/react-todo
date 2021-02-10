@@ -1,6 +1,6 @@
 import TodoActions from './TodoActions';
 
-function TodoItem({ id, setTasks, text }) {
+function TodoItem({ id, setTasks, text, color }) {
   return (
     <div className="todo-item" data-todo-id={id}>
       <div className="todo-checkbox">
@@ -13,9 +13,9 @@ function TodoItem({ id, setTasks, text }) {
           </div>
         </label>
       </div>
-      <div className="todo-delimiter"></div>
+      <div className={`todo-delimiter ${color}`}></div>
       <p className="todo-text">{text}</p>
-      <TodoActions id={id} setTasks={setTasks} />
+      <TodoActions id={id} setTasks={setTasks} color={color} />
     </div>
   );
 }
