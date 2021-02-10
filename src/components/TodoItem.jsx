@@ -15,7 +15,7 @@ function TodoItem({ id, setTasks, text, color }) {
       </div>
       <div className={`todo-delimiter ${color}`}></div>
       <p className="todo-text">{text}</p>
-      <TodoActions id={id} setTasks={setTasks} color={color} />
+      <TodoActions id={id} setTasks={setTasks} prevText={text} color={color} />
     </div>
   );
 }
