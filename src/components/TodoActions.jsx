@@ -3,7 +3,6 @@ const TodoActions = ({ id: todoID, setTasks, prevText, color }) => {
     let newTodoText;
     do {
       newTodoText = prompt('Введите новый текст', '');
-      console.log(newTodoText);
     } while (newTodoText === '');
 
     if (newTodoText === null) {

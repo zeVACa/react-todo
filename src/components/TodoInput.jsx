@@ -3,8 +3,6 @@ import React from 'react';
 const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
   const colors = ['grey', 'blue', 'green', 'orange', 'red'];
 
-  // const [activeCollor, setActiveCollor] = React.useState('grey');
-
   const addTaskHandler = (event) => {
     if (event.key === 'Enter' && event.currentTarget.value !== '') {
       const newTaskText = event.currentTarget.value.replace(/\s+/g, ' ').trim(); // remoing multiple spaces like '    a    a   ';
@@ -19,7 +17,6 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
             color: activeCollor,
             isCompleted: false,
           };
-          // localStorage.setItem('tasks', JSON.stringify([initialTaskObject]));
           return [...prevTasks, initialTaskObject];
         } else {
           let newTaskObject = {
@@ -28,7 +25,6 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
             color: activeCollor,
             isCompleted: false,
           };
-          // localStorage.setItem('tasks', JSON.stringify(newTaskObject));
 
           return [...prevTasks, newTaskObject];
         }
@@ -47,7 +43,7 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
       <input onKeyDown={addTaskHandler} ref={inputRef} type="text" placeholder="Текст задачи..." />
       <ul>
         {
-          (colorButtons = colors.map((color, index) => {
+          (colorButtons = colors.map((color) => {
             return (
               <li
                 onClick={(event) => {
@@ -55,7 +51,7 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
                   inputRef.current.focus(); // корректное ли использование юзрефа для связки двух элементов?
                 }}
                 className={`todo-color ${color}  ${color === activeCollor ? 'active' : ''}`}
-                key={index}></li>
+                key={color}></li>
             );
           }))
         }

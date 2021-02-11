@@ -3,8 +3,6 @@ import TodoActions from './TodoActions';
 
 function TodoItem({ id, setTasks, text, color, isCompleted }) {
   function checkboxHandler() {
-    console.log(isCompleted);
-
     setTasks((prevTasks) => {
       return prevTasks.map((task) => {
         if (task.id === id) {
