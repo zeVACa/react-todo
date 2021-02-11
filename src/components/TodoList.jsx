@@ -6,7 +6,14 @@ const TodoList = ({ tasks, setTasks, color }) => {
   ) : (
     tasks.map((obj) => {
       return (
-        <TodoItem setTasks={setTasks} key={obj.id} id={obj.id} text={obj.text} color={obj.color} />
+        <TodoItem
+          setTasks={setTasks}
+          key={obj.id}
+          id={obj.id}
+          text={obj.text}
+          color={obj.color}
+          isCompleted={obj.isCompleted}
+        />
       );
     })
   );

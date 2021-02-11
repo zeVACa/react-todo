@@ -13,12 +13,24 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
       setTasks((prevTasks) => {
         console.log('------');
         if (prevTasks.length == 0) {
-          return [...prevTasks, { id: 1, text: newTaskText, color: activeCollor }];
+          let initialTaskObject = {
+            id: 1,
+            text: newTaskText,
+            color: activeCollor,
+            isCompleted: false,
+          };
+          // localStorage.setItem('tasks', JSON.stringify([initialTaskObject]));
+          return [...prevTasks, initialTaskObject];
         } else {
-          return [
-            ...prevTasks,
-            { id: prevTasks[prevTasks.length - 1].id + 1, text: newTaskText, color: activeCollor },
-          ];
+          let newTaskObject = {
+            id: prevTasks[prevTasks.length - 1].id + 1,
+            text: newTaskText,
+            color: activeCollor,
+            isCompleted: false,
+          };
+          // localStorage.setItem('tasks', JSON.stringify(newTaskObject));
+
+          return [...prevTasks, newTaskObject];
         }
       });
 
@@ -35,14 +47,15 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
       <input onKeyDown={addTaskHandler} ref={inputRef} type="text" placeholder="Текст задачи..." />
       <ul>
         {
-          (colorButtons = colors.map((color) => {
+          (colorButtons = colors.map((color, index) => {
             return (
               <li
                 onClick={(event) => {
                   setActiveCollor(event.currentTarget.classList[1]); // корректно ли хардкодом определять конкретное имя класса? или как можно было лучше сделать?
                   inputRef.current.focus(); // корректное ли использование юзрефа для связки двух элементов?
                 }}
-                className={`todo-color ${color}  ${color === activeCollor ? 'active' : ''}`}></li>
+                className={`todo-color ${color}  ${color === activeCollor ? 'active' : ''}`}
+                key={index}></li>
             );
           }))
         }

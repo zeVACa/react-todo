@@ -120,23 +120,23 @@ h2 {
   &.active {
     &.grey {
       background-color: $grey;
-      border: 2px solid darken($grey, $color-buttons-darken);
+      border: 3px solid darken($grey, $color-buttons-darken);
     }
     &.red {
       background-color: $red;
-      border: 2px solid darken($red, $color-buttons-darken);
+      border: 3px solid darken($red, $color-buttons-darken);
     }
     &.blue {
       background-color: $blue;
-      border: 2px solid darken($blue, $color-buttons-darken);
+      border: 3px solid darken($blue, $color-buttons-darken);
     }
     &.orange {
       background-color: $orange;
-      border: 2px solid darken($orange, $color-buttons-darken);
+      border: 3px solid darken($orange, $color-buttons-darken);
     }
     &.green {
       background-color: $green;
-      border: 2px solid darken($green, $color-buttons-darken);
+      border: 3px solid darken($green, $color-buttons-darken);
     }
   }
 }
@@ -165,8 +165,8 @@ h2 {
 }
 
 .todo-input ul li {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   border-radius: 30px;
   border: 2px solid transparent;
   margin-right: 10px;
