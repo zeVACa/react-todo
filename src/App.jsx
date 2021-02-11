@@ -19,7 +19,7 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
     console.log('hello from effect 2');
-  }, [tasks.length]); // использовал length ткк, просто перезапись [] тригерит, ткк ссылка на объект другая
+  }, [tasks]);
 
   const [activeCollor, setActiveCollor] = React.useState('grey');
 
