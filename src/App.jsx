@@ -4,7 +4,7 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
 function App() {
-  const [tasks, setTasks] = React.useState(JSON.parse(localStorage.getItem('tasks')));
+  const [tasks, setTasks] = React.useState(JSON.parse(localStorage.getItem('tasks')) || []);
   const [activeCollor, setActiveCollor] = React.useState('grey');
 
   React.useEffect(() => {
