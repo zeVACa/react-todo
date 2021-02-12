@@ -46,7 +46,7 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
             return (
               <li
                 onClick={(event) => {
-                  setActiveCollor(event.currentTarget.classList[1]); // корректно ли хардкодом определять конкретное имя класса? или как можно было лучше сделать?
+                  setActiveCollor(color); // корректно ли хардкодом определять конкретное имя класса? или как можно было лучше сделать?
                   inputRef.current.focus(); // корректное ли использование юзрефа для связки двух элементов?
                 }}
                 className={`todo-color ${color}  ${color === activeCollor ? 'active' : ''}`}
