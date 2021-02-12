@@ -4,14 +4,13 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
   const colors = ['grey', 'blue', 'green', 'orange', 'red'];
 
   const addTaskHandler = (event) => {
-    if (event.key === 'Enter' && event.currentTarget.value !== '') {
+    if (event.key === 'Enter' && event.currentTarget.value.trim() !== '') {
       const newTaskText = event.currentTarget.value.replace(/\s+/g, ' ').trim(); // remoing multiple spaces like '    a    a   ';
       event.currentTarget.value = '';
 
       setTasks((prevTasks) => {
-        console.log('------');
-        if (prevTasks.length == 0) {
-          let initialTaskObject = {
+        if (prevTasks.length === 0) {
+          const initialTaskObject = {
             id: 1,
             text: newTaskText,
             color: activeCollor,
@@ -19,7 +18,7 @@ const TodoInput = ({ setTasks, activeCollor, setActiveCollor }) => {
           };
           return [...prevTasks, initialTaskObject];
         } else {
-          let newTaskObject = {
+          const newTaskObject = {
             id: prevTasks[prevTasks.length - 1].id + 1,
             text: newTaskText,
             color: activeCollor,

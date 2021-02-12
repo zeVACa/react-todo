@@ -139,27 +139,27 @@ h2 {
   &.active {
     &.grey {
       background-color: $grey;
-      border: 3px solid darken($grey, $color-buttons-darken);
+      border-color: darken($grey, $color-buttons-darken);
     }
 
     &.red {
       background-color: $red;
-      border: 3px solid darken($red, $color-buttons-darken);
+      border-color: darken($red, $color-buttons-darken);
     }
 
     &.blue {
       background-color: $blue;
-      border: 3px solid darken($blue, $color-buttons-darken);
+      border-color: darken($blue, $color-buttons-darken);
     }
 
     &.orange {
       background-color: $orange;
-      border: 3px solid darken($orange, $color-buttons-darken);
+      border-color: darken($orange, $color-buttons-darken);
     }
 
     &.green {
       background-color: $green;
-      border: 3px solid darken($green, $color-buttons-darken);
+      border-color: darken($green, $color-buttons-darken);
     }
   }
 }

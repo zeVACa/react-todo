@@ -1,5 +1,5 @@
 const TodoActions = ({ id: todoID, setTasks, prevText, color }) => {
-  const editTodoHandler = (event) => {
+  const editTodoHandler = () => {
     let newTodoText;
     do {
       newTodoText = prompt('Введите новый текст', '');
@@ -20,7 +20,7 @@ const TodoActions = ({ id: todoID, setTasks, prevText, color }) => {
     });
   };
 
-  const removeTodoHandler = (event) => {
+  const removeTodoHandler = () => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== todoID));
   };
 
