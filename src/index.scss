@@ -102,6 +102,8 @@ h2 {
 }
 
 .todo-color {
+  transition: 0.1s ease all;
+
   &.grey {
     border-color: $grey;
   }
@@ -117,23 +119,44 @@ h2 {
   &.green {
     border-color: $green;
   }
+
+  &.grey:hover {
+    background-color: lighten($grey, 8%);
+  }
+  &.red:hover {
+    background-color: lighten($red, $color-buttons-darken);
+  }
+  &.blue:hover {
+    background-color: lighten($blue, $color-buttons-darken);
+  }
+  &.orange:hover {
+    background-color: lighten($orange, $color-buttons-darken);
+  }
+  &.green:hover {
+    background-color: lighten($green, $color-buttons-darken);
+  }
+
   &.active {
     &.grey {
       background-color: $grey;
       border: 3px solid darken($grey, $color-buttons-darken);
     }
+
     &.red {
       background-color: $red;
       border: 3px solid darken($red, $color-buttons-darken);
     }
+
     &.blue {
       background-color: $blue;
       border: 3px solid darken($blue, $color-buttons-darken);
     }
+
     &.orange {
       background-color: $orange;
       border: 3px solid darken($orange, $color-buttons-darken);
     }
+
     &.green {
       background-color: $green;
       border: 3px solid darken($green, $color-buttons-darken);

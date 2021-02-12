@@ -5,6 +5,7 @@ import TodoList from './components/TodoList';
 
 function App() {
   const [tasks, setTasks] = React.useState([]);
+  const [activeCollor, setActiveCollor] = React.useState('grey');
 
   let storage = JSON.parse(localStorage.getItem('tasks')) || []; // правильно ли я сделал, что вынес связку с локалстораджом на уровень компонента App а не в отдельных?
 
@@ -20,8 +21,6 @@ function App() {
 
     console.log('hello from effect 2');
   }, [tasks]);
-
-  const [activeCollor, setActiveCollor] = React.useState('grey');
 
   return (
     <div className="App">
